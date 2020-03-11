@@ -11,5 +11,9 @@ if (empty($aliases_stub)) {
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
     $aliases_stub = curl_exec($ch);
     curl_close($ch);
+  if (!empty($aliases_stub) && !file_exists(__DIR__ . '/aliases.drushrc.php.stub')) {
+    file_put_contents(__DIR__ . '/aliases.drushrc.php.stub', $aliases_stub);
+    echo 'Alias data saved.' . "\n";
+  }
 }
 eval($aliases_stub);
