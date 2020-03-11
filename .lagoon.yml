@@ -18,7 +18,7 @@ tasks:
     - run:
         name: IF no Drupal installed and we are not master branch, sync from master brancy
         command: |
-            if tables=$(drush sqlq "show tables like 'node';") && [ -z "$tables" ]; then
+            if tables=$(drush sqlq "show tables;") && [ -z "$tables" ]; then
                 # no drupal installed, we install drupal from scratch
                 drush -y site-install config_installer --account-pass="super-secret-admin-pass"
             fi
