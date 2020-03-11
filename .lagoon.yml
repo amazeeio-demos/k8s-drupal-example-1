@@ -20,7 +20,7 @@ tasks:
         command: |
             if tables=$(drush sqlq "show tables like 'node';") && [ -z "$tables" ]; then
                 # no drupal installed, we install drupal from scratch
-                drush -y site-install config_installer
+                drush -y site-install config_installer --account-pass='super-secret-admin-pass'
             fi
         service: cli
         shell: bash
