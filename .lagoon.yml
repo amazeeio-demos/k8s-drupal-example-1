@@ -25,6 +25,10 @@ tasks:
         service: cli
         shell: bash
     - run:
+        name: drush status
+        command: drush status
+        service: cli
+    - run:
         name: drush updb
         command: drush -y updb
         service: cli
